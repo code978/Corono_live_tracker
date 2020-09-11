@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./App.module.css";
 
-import { Cards, Charts, CountryPicker } from "./Components";
+import { Cards, CountryPicker } from "./Components";
 import { fetchData } from "./api/index";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     handleCountryChange();
   }, []);
 
-  const handleCountryChange = async country => {
+  const handleCountryChange = async (country) => {
     const fetchdata = await fetchData(country);
 
     console.log(fetchdata);
@@ -23,7 +23,6 @@ const App = () => {
       <div className={styles.container}>
         <Cards data={data} />
         <CountryPicker handleCountryChange={handleCountryChange} />
-        <Charts />
       </div>
     </>
   );
